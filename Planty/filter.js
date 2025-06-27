@@ -29,6 +29,10 @@ jQuery(document).ready(function($) {
         });
     });
 });
+jQuery(document).ready(function($) {
+    $('select').select2(); // ou cible un select spécifique
+});
+
 
 
 // afficher une fenetre modal, afficher tout les articles,  faire en  sorte que les  filtres marchent , reuissir a charger plus 

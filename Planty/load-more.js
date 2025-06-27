@@ -15,13 +15,16 @@ jQuery(document).ready(function($) {
         };
 
         $.post(ajaxurl, data, function(response) {
-            if (response) {
-                $('#photo-gallery').append(response); // Ajouter les nouvelles photos
-                page++; // Incrémenter la page
-            } else {
-                $('#load-more').hide(); // Cacher le bouton si plus de photos
-            }
-        });
+    console.log("Réponse AJAX :", response); // DEBUG
+    if (response && response.trim() !== '') {
+        $('#photo-gallery').append(response);
+        page++;
+    } else {
+        console.log("Aucune réponse, on cache le bouton");
+        $('#load-more').css('display', 'none');
+    }
+});
+
     });
 });
 

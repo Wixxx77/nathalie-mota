@@ -50,8 +50,8 @@ get_header();
             // Récupérer l'ID de la photographie et la méta-donnée
             $photographie_id = get_the_ID();
             $format = get_post_meta($photographie_id, 'format', true); // Récupérer la méta-donnée 'format'
-            $categorie = get_post_meta($photographie_id, 'categorie', true);
-            $date_de_la_photo = get_post_meta($photographie_id, 'date_de_la_photo', true); // Récupérer la méta-donnée 'format'
+            $categorie = get_post_meta($photographie_id, 'categorie', true); // Récupérer la méta-donnée 'categorie'
+            $date_de_la_photo = get_post_meta($photographie_id, 'date_de_la_photo', true); // Récupérer la méta-donnée 'date'
 
             // Ajouter une classe par défaut si 'format' est vide
             $format_class = !empty($format) ? esc_attr($format) : 'default-format';

@@ -1,4 +1,21 @@
 <?php
+function mon_theme_enqueue_select2() {
+    // CSS Select2
+    wp_enqueue_style(
+        'select2-css',
+        'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css'
+    );
+
+    // JS Select2
+    wp_enqueue_script(
+        'select2-js',
+        'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js',
+        ['jquery'],
+        null,
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'mon_theme_enqueue_select2');
 
 function enqueue_custom_scripts() {
     // Enregistrer jQuery (c'est souvent déjà fait par défaut, mais on le rajoute pour être sûr)
@@ -113,11 +130,10 @@ function load_more_photos() {
             </div>
             <?php
         endwhile;
-    else :
-        echo '<p>Aucune photo trouvée.</p>';
     endif;
     
     wp_reset_postdata();
+    wp_die();
 }
 add_action('wp_ajax_load_more_photos', 'load_more_photos');
 add_action('wp_ajax_nopriv_load_more_photos', 'load_more_photos');?>
